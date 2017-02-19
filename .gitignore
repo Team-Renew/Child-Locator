@@ -1,3 +1,6 @@
+
+app/google-services.json
+
 # Built application files
 *.apk
 *.ap_
@@ -35,6 +38,15 @@ captures/
 # Intellij
 *.iml
 .idea/workspace.xml
+.idea/libraries/
 
 # Keystore files
 *.jks
+
+# files used by Mac OS X to store folder specific metadata information
+.DS_Store
+
+
+*iml
+*/build
+fastlane
