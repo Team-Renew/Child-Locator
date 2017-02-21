@@ -2,19 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.childlocator.firebase">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name="com.childlocator.firebase.App"
+        android:label="@string/app_name"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.childlocator.firebase.ui.login.LoginActivity"/>
+        <activity android:name="com.childlocator.firebase.ui.map.MapActivity"/>
     </application>
 
 </manifest>
