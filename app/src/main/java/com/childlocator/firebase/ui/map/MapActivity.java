@@ -12,6 +12,7 @@ import com.childlocator.firebase.App;
 //import android.R;
 import com.childlocator.firebase.R;
 import com.childlocator.firebase.base.BaseActivity;
+import com.childlocator.firebase.base.BaseDrawerActivity;
 import com.childlocator.firebase.data.model.User;
 import com.childlocator.firebase.ui.login.LoginActivity;
 import com.childlocator.firebase.ui.splash.SplashActivity;
@@ -22,7 +23,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MapActivity extends BaseActivity {
+public class MapActivity extends BaseDrawerActivity {
   public static final int REQUEST_COMPLETED = 1003;
 
   @Bind(R.id.btnLogout)
