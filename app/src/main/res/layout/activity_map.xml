@@ -2,32 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
               android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/container_drawer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40.0dip"
-            android:text="Should load Google Maps here"
-            android:textColor="@color/text_color_dark"
-            android:textSize="25.0sp"/>
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/txtView"
+                android:text="Logout"/>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Should load Google Maps here"
+                android:textColor="@color/text_color_dark"
+                android:textSize="23.0sp"/>
+
+        </RelativeLayout>
+
+    </FrameLayout>
 
 </LinearLayout>

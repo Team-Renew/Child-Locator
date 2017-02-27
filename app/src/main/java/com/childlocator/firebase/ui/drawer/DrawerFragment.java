@@ -72,7 +72,10 @@ public class DrawerFragment extends Fragment {
 
     this.drawer = new DrawerBuilder()
             .withActivity(this.getActivity())
+            .withRootView(R.id.drawer_layout)
             .withToolbar(toolbar)
+            .withActionBarDrawerToggle(true)
+            .withActionBarDrawerToggleAnimated(true)
             .withDrawerItems(new ArrayList<>(items))
             .withOnDrawerItemClickListener(this.onDrawerItemClickListener)
             .build();
