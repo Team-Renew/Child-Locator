@@ -63,11 +63,6 @@ public class DrawerFragment extends Fragment {
     List<PrimaryDrawerItem> items =
             ((ArrayList<DrawerItemInfo>) this.getArguments().getSerializable(ARG_DRAWER_ITEMS_KEY))
                     .stream()
-                    .map(drawerItemInfo ->
-                            new PrimaryDrawerItem()
-                                    .withIdentifier(drawerItemInfo.getId())
-                                    .withName(drawerItemInfo.getTitle())
-                    )
                     .collect(Collectors.toList());
 
     this.drawer = new DrawerBuilder()
