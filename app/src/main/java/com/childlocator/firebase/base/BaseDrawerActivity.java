@@ -1,16 +1,16 @@
 package com.childlocator.firebase.base;
 
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.childlocator.firebase.R;
 import com.childlocator.firebase.data.utils.DrawerItemInfo;
 import com.childlocator.firebase.ui.drawer.DrawerFragment;
-import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 
 import java.util.ArrayList;
 
-public abstract class BaseDrawerActivity extends BaseActivity {
+public abstract class BaseDrawerActivity extends AppCompatActivity {
   public enum Menu {
     USER(1),
     USER_FAMILY(2),
@@ -25,8 +25,8 @@ public abstract class BaseDrawerActivity extends BaseActivity {
     }
   }
 
-  @Override
-  protected abstract void setupActivityComponent();
+//  @Override
+//  protected abstract void setupActivityComponent();
 
   @Override
   protected void onStart() {
@@ -75,9 +75,9 @@ public abstract class BaseDrawerActivity extends BaseActivity {
               return true;
             });
 
-    this.getSupportFragmentManager()
-            .beginTransaction()
-            .replace(R.id.container_drawer, drawerFragment)
-            .commit();
+//    this.getSupportFragmentManager()
+//            .beginTransaction()
+//            .replace(R.id.container_drawer, drawerFragment)
+//            .commit();
   }
 }
