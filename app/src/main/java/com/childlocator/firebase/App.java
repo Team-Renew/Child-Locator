@@ -10,6 +10,7 @@ import com.childlocator.firebase.data.firebase.FirebaseModule;
 import com.childlocator.firebase.data.model.User;
 import com.childlocator.firebase.data.user.UserComponent;
 import com.childlocator.firebase.data.user.UserModule;
+import com.firebase.client.Firebase;
 
 public class App extends Application {
   private AppComponent appComponent;
@@ -31,6 +32,8 @@ public class App extends Application {
             .appModule(new AppModule(this))
             .firebaseModule(new FirebaseModule())
             .build();
+
+    Firebase.setAndroidContext(this);
   }
 
   public AppComponent getAppComponent() {
