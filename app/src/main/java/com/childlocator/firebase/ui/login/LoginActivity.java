@@ -14,7 +14,7 @@ import com.childlocator.firebase.App;
 import com.childlocator.firebase.R;
 import com.childlocator.firebase.base.BaseActivity;
 import com.childlocator.firebase.data.model.User;
-import com.childlocator.firebase.ui.map.MapActivity;
+import com.childlocator.firebase.ui.children.ChildrenActivity;
 
 import javax.inject.Inject;
 
@@ -26,10 +26,13 @@ public class LoginActivity extends BaseActivity {
 
   @Bind(R.id.etEmail)
   EditText etEmail;
+
   @Bind(R.id.etPw)
   EditText etPw;
+
   @Bind(R.id.btnLogin)
   Button btnLogin;
+
   @Bind(R.id.pbLoading)
   ProgressBar pbLoading;
 
@@ -77,7 +80,9 @@ public class LoginActivity extends BaseActivity {
   }
 
   public void showLoginSuccess(User user) {
-    MapActivity.startWithUser(this, user);
+    Intent intent = new Intent(LoginActivity.this, ChildrenActivity.class);
+    startActivity(intent);
+    finish();
   }
 
   public void showLoading(boolean loading) {
@@ -86,8 +91,8 @@ public class LoginActivity extends BaseActivity {
 
   public void showInsertUsername(final User user) {
 
-    addAlertDialog.setTitle("Insert your username");
-    addAlertDialog.setMessage("Be sure to enter");
+    addAlertDialog.setTitle("Insert your name");
+    addAlertDialog.setMessage("(be sure to enter)");
 
     final EditText etUsername = new EditText(this);
     etUsername.setSingleLine();

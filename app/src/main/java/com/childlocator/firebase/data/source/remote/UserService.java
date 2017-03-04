@@ -2,9 +2,10 @@ package com.childlocator.firebase.data.source.remote;
 
 import android.app.Application;
 
-import com.childlocator.firebase.LocationService;
 import com.childlocator.firebase.data.Constants;
 import com.childlocator.firebase.data.model.User;
+import com.childlocator.firebase.services.LocationService;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -38,8 +39,7 @@ public class UserService {
     user.setLatitude(lat);
     user.setLongitude(lng);
 
-    databaseRef.child("cl_users").child(user.getUid()).setValue(user);
-    databaseRef.child("usernames").child(user.getUsername()).setValue(user);
+    databaseRef.child(Constants.NODE_USERS).child(user.getUid()).setValue(user);
   }
 
   public DatabaseReference getUser(String userUid) {
@@ -51,10 +51,8 @@ public class UserService {
   }
 
   public void updateUser(User user) {
-
   }
 
   public void deleteUser(String key) {
-
   }
 }
