@@ -8,11 +8,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 
 public class User {
-//  private String id;
-//  private String name;
-//  private String email;
-
-
   @NonNull
   String uid;
   @Nullable

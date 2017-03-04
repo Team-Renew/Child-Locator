@@ -3,7 +3,7 @@ package com.childlocator.firebase.data.source.remote;
 import android.app.Application;
 
 import com.childlocator.firebase.LocationService;
-import com.childlocator.firebase.data.Constant;
+import com.childlocator.firebase.data.Constants;
 import com.childlocator.firebase.data.model.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,7 +24,7 @@ public class UserService {
       user.setPhoto_url("NOT");
     }
 
-    user.setConnection(Constant.KEY_ONLINE);
+    user.setConnection(Constants.KEY_ONLINE);
     user.setCreatedAt(String.valueOf(new Date().getTime()));
 
     double lat = 0;
