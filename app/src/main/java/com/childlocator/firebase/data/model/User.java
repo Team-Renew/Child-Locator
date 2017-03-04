@@ -8,6 +8,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
 
 public class User {
+//  private String id;
+//  private String name;
+//  private String email;
+
+
   @NonNull
   String uid;
   @Nullable
@@ -25,6 +30,11 @@ public class User {
   String photo_url;
   @Nullable
   String name;
+
+  private String connection;
+  private String createdAt;
+  private double latitude;
+  private double longitude;
 
   @Nullable
   //Position lastPosition;
@@ -48,13 +58,28 @@ public class User {
     this.uid = uid;
   }
 
-  public User(String uid, String username, String email, String provider, String photo_url, String name) {
-    this.uid = uid;
-    this.username = username;
-    this.email = email;
-    this.provider = provider;
-    this.photo_url = photo_url;
-    this.name = name;
+  public User(
+          String uid,
+          String username,
+          String email,
+          String provider,
+          String photo_url,
+          String name,
+          String connection,
+          String createdAt,
+          double latitude,
+          double longitude) {
+    setUid(uid);
+    setUsername(username);
+    setEmail(email);
+    setProvider(provider);
+    setPhoto_url(photo_url);
+    setName(name);
+
+    setConnection(connection);
+    setCreatedAt(createdAt);
+    setLatitude(latitude);
+    setLongitude(longitude);
   }
 
   @NonNull
@@ -109,5 +134,37 @@ public class User {
 
   public void setUsername(String username) {
     this.username = username;
+  }
+
+  public String getConnection() {
+    return connection;
+  }
+
+  public void setConnection(String connection) {
+    this.connection = connection;
+  }
+
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+  public double getLatitude() {
+    return latitude;
+  }
+
+  public void setLatitude(double latitude) {
+    this.latitude = latitude;
+  }
+
+  public double getLongitude() {
+    return longitude;
+  }
+
+  public void setLongitude(double longitude) {
+    this.longitude = longitude;
   }
 }

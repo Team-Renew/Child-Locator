@@ -2,9 +2,13 @@ package com.childlocator.firebase.data.source.remote;
 
 import android.app.Application;
 
+import com.childlocator.firebase.LocationService;
+import com.childlocator.firebase.data.Constant;
 import com.childlocator.firebase.data.model.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Date;
 
 public class UserService {
   private Application application;
@@ -19,13 +23,27 @@ public class UserService {
     if (user.getPhoto_url() == null) {
       user.setPhoto_url("NOT");
     }
-    databaseRef.child("users").child(user.getUid()).setValue(user);
-    databaseRef.child("usernames").child(user.getUsername()).setValue(user);
 
+    user.setConnection(Constant.KEY_ONLINE);
+    user.setCreatedAt(String.valueOf(new Date().getTime()));
+
+    double lat = 0;
+    double lng = 0;
+    if (LocationService.latitude != 0) {
+      lat = LocationService.latitude;
+    }
+    if (LocationService.longitude != 0) {
+      lng = LocationService.longitude;
+    }
+    user.setLatitude(lat);
+    user.setLongitude(lng);
+
+    databaseRef.child("cl_users").child(user.getUid()).setValue(user);
+    databaseRef.child("usernames").child(user.getUsername()).setValue(user);
   }
 
   public DatabaseReference getUser(String userUid) {
-    return databaseRef.child("users").child(userUid);
+    return databaseRef.child("cl_users").child(userUid);
   }
 
   public DatabaseReference getUserByUsername(String username) {

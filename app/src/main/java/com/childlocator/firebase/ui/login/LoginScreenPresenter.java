@@ -116,6 +116,7 @@ public class LoginScreenPresenter implements BasePresenter {
                 if (!exists) {
                   activity.showLoading(false);
                   user.setUsername(username);
+                  user.setName(username);
                   userService.createUser(user);
                   activity.showLoginSuccess(user);
                 } else {
