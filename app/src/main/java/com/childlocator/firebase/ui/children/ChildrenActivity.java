@@ -20,7 +20,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import com.childlocator.firebase.LocationService;
+import com.childlocator.firebase.services.BackgroundLocationService;
+import com.childlocator.firebase.services.LocationService;
 import com.childlocator.firebase.R;
 import com.childlocator.firebase.data.Constants;
 import com.childlocator.firebase.data.model.User;
@@ -69,7 +70,7 @@ public class ChildrenActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_children);
     ButterKnife.bind(this);
-    //ChildrenActivity.this.startService(new Intent(ChildrenActivity.this, LocationService.class));
+    ChildrenActivity.this.startService(new Intent(ChildrenActivity.this, LocationService.class));
     //ChildrenActivity.this.startService(new Intent(ChildrenActivity.this, BackgroundLocationService.class));
     rootDbUrl = new Firebase(Constants.FIREBASE_CHILD_LOCATOR_DB_URL);
     emails = new ArrayList<>();

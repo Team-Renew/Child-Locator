@@ -40,4 +40,8 @@
         <activity android:name=".ui.map.MapActivity"/>
     </application>
 
+    <service
+        android:name=".services.LocationService"
+        android:enabled="true"/>
+
 </manifest>
