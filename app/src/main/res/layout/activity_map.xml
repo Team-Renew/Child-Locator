@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:fitsSystemWindows="true"
               android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/container_drawer"
+    android:id="@+id/container_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:androidpp="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/drawer_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:elevation="4dp"
+                androidpp:popupTheme="@style/AppTheme"/>
+
+        </android.support.design.widget.AppBarLayout>
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/drawer_layout"
@@ -23,18 +46,31 @@
                 android:id="@+id/btnLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/txtView"
                 android:text="Logout"/>
 
-            <TextView
-                android:id="@+id/txtView"
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="Should load Google Maps here"
-                android:textColor="@color/text_color_dark"
-                android:textSize="23.0sp"/>
+                tools:context=".ui.map.MapActivity"/>
+
+            <Button
+                android:id="@+id/btnRouting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="Routing"/>
+
+            <Button
+                android:id="@+id/btnCancelRouting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="100dp"
+                android:text="Cancel Routing"/>
 
         </RelativeLayout>
 
