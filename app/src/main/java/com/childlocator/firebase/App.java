@@ -24,6 +24,9 @@ public class App extends Application {
   public void onCreate() {
     super.onCreate();
 
+    // initialize Firebase library once with an Android Context
+    Firebase.setAndroidContext(this);
+
     initAppComponent();
   }
 
@@ -32,8 +35,6 @@ public class App extends Application {
             .appModule(new AppModule(this))
             .firebaseModule(new FirebaseModule())
             .build();
-
-    Firebase.setAndroidContext(this);
   }
 
   public AppComponent getAppComponent() {
