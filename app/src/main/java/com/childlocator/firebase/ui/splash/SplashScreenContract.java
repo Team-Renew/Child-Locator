@@ -6,7 +6,7 @@ public interface SplashScreenContract {
   interface View {
     void showLoginActivity();
 
-    void showMapActivity(User user);
+    void showChildrenActivity(User user);
   }
 
   interface Presenter {

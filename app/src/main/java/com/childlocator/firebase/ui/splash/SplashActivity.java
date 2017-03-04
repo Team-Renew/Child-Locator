@@ -1,15 +1,13 @@
 package com.childlocator.firebase.ui.splash;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 import com.childlocator.firebase.App;
 import com.childlocator.firebase.R;
 import com.childlocator.firebase.base.BaseActivity;
 import com.childlocator.firebase.data.model.User;
+import com.childlocator.firebase.ui.children.ChildrenActivity;
 import com.childlocator.firebase.ui.login.LoginActivity;
-import com.childlocator.firebase.ui.map.MapActivity;
 
 import javax.inject.Inject;
 
@@ -47,7 +45,9 @@ public class SplashActivity extends BaseActivity implements SplashScreenContract
   }
 
   @Override
-  public void showMapActivity(User user) {
-    MapActivity.startWithUser(this, user);
+  public void showChildrenActivity(User user) {
+    Intent intent = new Intent(SplashActivity.this, ChildrenActivity.class);
+    startActivity(intent);
+    finish();
   }
 }

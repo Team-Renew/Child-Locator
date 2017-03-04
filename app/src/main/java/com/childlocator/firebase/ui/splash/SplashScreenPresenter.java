@@ -75,7 +75,7 @@ public class SplashScreenPresenter implements BasePresenter, SplashScreenContrac
                 if (user == null || user.getEmail() == null) {
                   activity.showLoginActivity();
                 } else {
-                  activity.showMapActivity(user);
+                  activity.showChildrenActivity(user);
                 }
               }
 
