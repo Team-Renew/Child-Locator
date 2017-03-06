@@ -20,30 +20,28 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import com.childlocator.firebase.services.BackgroundLocationService;
-import com.childlocator.firebase.services.LocationService;
+import com.childlocator.firebase.services.BackgroundLocationService2;
 import com.childlocator.firebase.R;
 import com.childlocator.firebase.data.Constants;
 import com.childlocator.firebase.data.model.User;
-import com.childlocator.firebase.ui.login.LoginActivity;
 import com.childlocator.firebase.ui.map.MapActivity;
-import com.firebase.client.AuthData;
-import com.firebase.client.ChildEventListener;
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+import com.childlocator.firebase.ui.splash.SplashActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
 public class ChildrenActivity extends AppCompatActivity {
-  private Firebase rootDbUrl;
-  private Firebase parentDbUrl;
-  private Firebase allUsersDbUrl;
-  private AuthData mAuthData;
+  private DatabaseReference rootDbUrl;
+  private DatabaseReference parentDbUrl;
+  private DatabaseReference allUsersDbUrl;
   private String parentUId;
   private String parentEmail;
   private ArrayList<User> children;
@@ -52,8 +50,8 @@ public class ChildrenActivity extends AppCompatActivity {
   private ValueEventListener valueEventListenerNodeConnected;
   private User parent;
 
-  @Bind(R.id.btnLogout)
-  Button btnLogout;
+//  @Bind(R.id.btnLogout)
+//  Button btnLogout;
 
   @Bind(R.id.lvChildren)
   ListView lvChildren;
@@ -70,9 +68,10 @@ public class ChildrenActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_children);
     ButterKnife.bind(this);
-    ChildrenActivity.this.startService(new Intent(ChildrenActivity.this, LocationService.class));
+    //ChildrenActivity.this.startService(new Intent(ChildrenActivity.this, LocationService.class));
     //ChildrenActivity.this.startService(new Intent(ChildrenActivity.this, BackgroundLocationService.class));
-    rootDbUrl = new Firebase(Constants.FIREBASE_CHILD_LOCATOR_DB_URL);
+    ChildrenActivity.this.startService(new Intent(ChildrenActivity.this, BackgroundLocationService2.class));
+    rootDbUrl = FirebaseDatabase.getInstance().getReference();
     emails = new ArrayList<>();
     children = new ArrayList<>();
     childrenAdapter = new ChildrenAdapter(ChildrenActivity.this, 0, children);
@@ -111,7 +110,7 @@ public class ChildrenActivity extends AppCompatActivity {
           getCurrentUser(user);
           getAllUsers();
         } else {
-          startActivity(new Intent(ChildrenActivity.this, LoginActivity.class));
+          startActivity(new Intent(ChildrenActivity.this, SplashActivity.class));
           finish();
         }
       }
@@ -153,7 +152,7 @@ public class ChildrenActivity extends AppCompatActivity {
               }
 
               @Override
-              public void onCancelled(FirebaseError firebaseError) {
+              public void onCancelled(DatabaseError firebaseError) {
               }
             });
   }
@@ -166,7 +165,7 @@ public class ChildrenActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onCancelled(FirebaseError firebaseError) {
+    public void onCancelled(DatabaseError firebaseError) {
     }
   };
 
@@ -209,7 +208,7 @@ public class ChildrenActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onCancelled(FirebaseError firebaseError) {
+    public void onCancelled(DatabaseError firebaseError) {
     }
   };
 
@@ -235,19 +234,16 @@ public class ChildrenActivity extends AppCompatActivity {
     }
   }
 
-  @OnClick(R.id.btnLogout)
-  public void btnLogout() {
-    if (mAuth != null) {
-      stopService(new Intent(this, LocationService.class));
-
-      parentDbUrl.child(Constants.NODE_CONNECTION).setValue(Constants.KEY_OFFLINE);
-
-      // Temporarily solution to delete user from Firebase !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      // mAuth.getCurrentUser().delete();
-
-      mAuth.signOut();
-    }
-  }
+//  @OnClick(R.id.btnLogout)
+//  public void btnLogout() {
+//    if (mAuth != null) {
+//      stopService(new Intent(this, BackgroundLocationService2.class));
+//
+//      parentDbUrl.child(Constants.NODE_CONNECTION).setValue(Constants.KEY_OFFLINE);
+//
+//      mAuth.signOut();
+//    }
+//  }
 
   public class ChildrenAdapter extends ArrayAdapter<User> {
     private Activity mActivity;
