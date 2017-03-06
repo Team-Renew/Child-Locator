@@ -45,7 +45,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_toRightOf="@id/icEmail"
                 android:backgroundTint="#000000"
-                android:hint="E-mail"/>
+                android:hint="e-mail"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -83,5 +83,15 @@
             android:text="Login"
             android:textColor="#2b84a0"/>
 
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_login"
+            android:text="Register"
+            android:textColor="#2b84a0"/>
     </LinearLayout>
 </RelativeLayout>
