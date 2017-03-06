@@ -5,12 +5,10 @@
     <!-- Used to start logging after re-boot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
@@ -28,20 +26,45 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="YOUR_API_KEY"/>
-        <activity android:name=".ui.splash.SplashActivity">
+
+        <activity android:name=".ui.children.ChildrenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ui.splash.SplashActivity"/>
         <activity android:name=".ui.login.LoginActivity"/>
-        <activity android:name=".ui.children.ChildrenActivity"/>
+        <activity android:name=".ui.register.RegisterActivity"/>
+        <activity android:name=".ui.settings.SettingsActivity"/>
         <activity android:name=".ui.map.MapActivity"/>
+
+        <receiver android:name=".services.LocationReceiver"/>
+
+        <service
+            android:name=".services.BackgroundLocationService2"
+            android:enabled="true"/>
+
+        <!-- <receiver -->
+        <!-- android:name="com.childlocator.firebase.services.LocationLoggerServiceManager" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="false" -->
+        <!-- android:label="LocationLoggerServiceManager"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED"/> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+        <!-- <service -->
+        <!-- android:name="com.childlocator.firebase.services.LocationService" -->
+        <!-- android:enabled="true"/> -->
+
+        <!-- <service -->
+        <!-- android:name="com.childlocator.firebase.services.BackgroundLocationService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="false"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.android.gms.wearable.BIND_LISTENER"/> -->
     </application>
-
-    <service
-        android:name=".services.LocationService"
-        android:enabled="true"/>
-
 </manifest>

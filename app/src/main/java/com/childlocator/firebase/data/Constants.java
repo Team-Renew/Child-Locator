@@ -1,7 +1,6 @@
 package com.childlocator.firebase.data;
 
 public class Constants {
-  public static final String FIREBASE_CHILD_LOCATOR_DB_URL = "https://child-locator-9233a.firebaseio.com/";
   public static final String NODE_USERS = "cl_users";
   public static final String NODE_CONNECTION = "connection";
   public static final String NODE_LATITUDE = "latitude";
@@ -16,13 +15,13 @@ public class Constants {
   private static final int MILLISECONDS_PER_SECOND = 1000;
 
   // Update frequency in seconds
-  private static final int UPDATE_INTERVAL_IN_SECONDS = 60;
+  private static final int UPDATE_INTERVAL_IN_SECONDS = 30;
 
   // Update frequency in milliseconds
   public static final long UPDATE_INTERVAL = MILLISECONDS_PER_SECOND * UPDATE_INTERVAL_IN_SECONDS;
 
   // The fastest update frequency, in seconds
-  private static final int FASTEST_INTERVAL_IN_SECONDS = 60;
+  private static final int FASTEST_INTERVAL_IN_SECONDS = 30;
 
   // A fast frequency ceiling in milliseconds
   public static final long FASTEST_INTERVAL = MILLISECONDS_PER_SECOND * FASTEST_INTERVAL_IN_SECONDS;
