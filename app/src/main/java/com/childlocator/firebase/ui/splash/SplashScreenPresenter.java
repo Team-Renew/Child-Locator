@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 public class SplashScreenPresenter implements BasePresenter, SplashScreenContract.Presenter {
 
   // Splash screen timer
-  private static int SPLASH_TIME_OUT = 4000;
+  private static int SPLASH_TIME_OUT = 3000;
 
   private SplashActivity activity;
   private UserService userService;
