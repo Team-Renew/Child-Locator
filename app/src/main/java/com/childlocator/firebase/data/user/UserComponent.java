@@ -7,5 +7,4 @@ import dagger.Subcomponent;
 @UserScope
 @Subcomponent(modules = {UserModule.class})
 public interface UserComponent {
-//  MapScreenComponent plus(MapScreenModule activityModule);
 }

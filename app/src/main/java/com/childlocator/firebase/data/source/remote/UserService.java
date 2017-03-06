@@ -4,7 +4,8 @@ import android.app.Application;
 
 import com.childlocator.firebase.data.Constants;
 import com.childlocator.firebase.data.model.User;
-import com.childlocator.firebase.services.LocationService;
+import com.childlocator.firebase.services.BackgroundLocationService2;
+//import com.childlocator.firebase.services.LocationService;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -28,13 +29,13 @@ public class UserService {
     user.setConnection(Constants.KEY_ONLINE);
     user.setCreatedAt(String.valueOf(new Date().getTime()));
 
-    double lat = 0;
-    double lng = 0;
-    if (LocationService.latitude != 0) {
-      lat = LocationService.latitude;
+    double lat = 42.652;
+    double lng = 23.378;
+    if (BackgroundLocationService2.latitude != 0) {
+      lat = BackgroundLocationService2.latitude;
     }
-    if (LocationService.longitude != 0) {
-      lng = LocationService.longitude;
+    if (BackgroundLocationService2.longitude != 0) {
+      lng = BackgroundLocationService2.longitude;
     }
     user.setLatitude(lat);
     user.setLongitude(lng);
@@ -44,10 +45,6 @@ public class UserService {
 
   public DatabaseReference getUser(String userUid) {
     return databaseRef.child("cl_users").child(userUid);
-  }
-
-  public DatabaseReference getUserByUsername(String username) {
-    return databaseRef.child("usernames").child(username);
   }
 
   public void updateUser(User user) {

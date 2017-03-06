@@ -7,31 +7,9 @@
               android:orientation="vertical">
 
     <FrameLayout
-    android:id="@+id/container_drawer"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
-
-    <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:androidpp="http://schemas.android.com/tools"
+        android:id="@+id/container_drawer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/AppTheme">
-
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/drawer_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="?attr/colorPrimary"
-                android:elevation="4dp"
-                androidpp:popupTheme="@style/AppTheme"/>
-
-        </android.support.design.widget.AppBarLayout>
-    </FrameLayout>
+        android:layout_height="wrap_content"/>
 
     <FrameLayout
         android:id="@+id/drawer_layout"
@@ -42,11 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logout"/>
+            <!--<Button-->
+            <!--android:id="@+id/btnLogout"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Logout"/>-->
 
             <fragment
                 android:id="@+id/map"
@@ -73,7 +51,5 @@
                 android:text="Cancel Routing"/>
 
         </RelativeLayout>
-
     </FrameLayout>
-
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.childlocator.firebase.base;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.View;
 import com.childlocator.firebase.R;
 import com.childlocator.firebase.data.utils.DrawerItemInfo;
 import com.childlocator.firebase.ui.drawer.DrawerFragment;
+import com.childlocator.firebase.ui.settings.SettingsActivity;
 
 import java.util.ArrayList;
 
@@ -66,9 +68,9 @@ public abstract class BaseDrawerActivity extends AppCompatActivity {
     Fragment drawerFragment =
             DrawerFragment.createFragment(items, (view, position, drawerItem) -> {
               switch ((int) drawerItem.getIdentifier()) {
-                case 2:
-//                  Intent intent = new Intent(this, TabsNavigationActivity.class);
-//                  this.startActivity(intent);
+                case 4:
+                  Intent intent = new Intent(this, SettingsActivity.class);
+                  this.startActivity(intent);
                   break;
               }
 
