@@ -2,4 +2,4 @@
 
 ## Video demo
 
-[**YouTube**](I'm not ready with video yet)
+[**YouTube**](https://youtu.be/t-zmiqMj_0o)
